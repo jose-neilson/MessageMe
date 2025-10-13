@@ -7,3 +7,7 @@ import "controllers"
 $(document).on('turbo:load', function() {
     $('.ui.dropdown').dropdown();
 });
+
+$(document).on('click', '.message .close', function() {
+    $(this).closest('.message').transition('fade');
+});
