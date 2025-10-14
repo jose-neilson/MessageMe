@@ -11,15 +11,16 @@
                 </div>
             </div>
             <div class="extra content">
-                <form class="ui reply form">
+                <%= form_with model: @message, url: message_path, class: "ui reply form", method: :post do |f| %>
                     <div class="field">
                         <div class="ui fluid icon input">
-                            <input type="text" placeholder="Enter a message...">
-                            <i class="bordered inverted orange edit icon"></i>
+                            <%= f.text_field :body, placeholder: "Enter a message...", autocomplete: "off" %>
+                            <%= f.button do %>
+                                <%= content_tag(:i, nil, class: "bordered inverted orange edit icon") %>
+                            <% end %>
                         </div>
                     </div>
-                    
-                </form>
+                <% end %>
             </div>
         </div>
     </div>
